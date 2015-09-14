@@ -75,12 +75,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Diagrams\AssemblyButterfly.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Diagrams\AssemblyButterfly.Designer.cs">
       <DependentUpon>AssemblyButterfly.cs</DependentUpon>
     </Compile>
     <Compile Include="Diagrams\AssemblyButterflyGb.cs" />
     <Compile Include="Diagrams\AllNamespaces.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Diagrams\AllNamespaces.designer.cs">
       <DependentUpon>AllNamespaces.cs</DependentUpon>
@@ -88,6 +90,7 @@
     <Compile Include="Diagrams\AllNamespacesGb.cs" />
     <Compile Include="BaseILGraphBuilder.cs" />
     <Compile Include="Diagrams\GeneralClasses.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Diagrams\GeneralClasses.Designer.cs">
       <DependentUpon>GeneralClasses.cs</DependentUpon>
@@ -95,42 +98,49 @@
     <Compile Include="Diagrams\GeneralClassesGb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Diagrams\ClassButterfly.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Diagrams\ClassButterfly.Designer.cs">
       <DependentUpon>ClassButterfly.cs</DependentUpon>
     </Compile>
     <Compile Include="Diagrams\ClassButterflyGb.cs" />
     <Compile Include="Diagrams\ClassMethods.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Diagrams\ClassMethods.Designer.cs">
       <DependentUpon>ClassMethods.cs</DependentUpon>
     </Compile>
     <Compile Include="Diagrams\ClassMethodsGb.cs" />
     <Compile Include="Diagrams\AssemblyClasses.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Diagrams\AssemblyClasses.designer.cs">
       <DependentUpon>AssemblyClasses.cs</DependentUpon>
     </Compile>
     <Compile Include="Diagrams\AssembyClassesGb.cs" />
     <Compile Include="Diagrams\AssemblyNamespaces.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Diagrams\AssemblyNamespaces.designer.cs">
       <DependentUpon>AssemblyNamespaces.cs</DependentUpon>
     </Compile>
     <Compile Include="Diagrams\AssemblyNamespacesGb.cs" />
     <Compile Include="Diagrams\MethodButterfly.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Diagrams\MethodButterfly.Designer.cs">
       <DependentUpon>MethodButterfly.cs</DependentUpon>
     </Compile>
     <Compile Include="Diagrams\MethodButterflyGb.cs" />
     <Compile Include="Diagrams\NamespaceClasses.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Diagrams\NamespaceClasses.Designer.cs">
       <DependentUpon>NamespaceClasses.cs</DependentUpon>
     </Compile>
     <Compile Include="Diagrams\NamespaceClassesGb.cs" />
     <Compile Include="Diagrams\AllAssemblies.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Diagrams\AllAssemblies.designer.cs">
       <DependentUpon>AllAssemblies.cs</DependentUpon>

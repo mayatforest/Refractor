@@ -8,13 +8,18 @@ using System.Reflection.Emit;
 
 using Refractor.Common;
 using SDILReader;
+using System.Windows.Forms;
 
 namespace Refractor.Plugins.ILDiagrams
 {
     public class ClassButterflyGb : BaseILGraphBuilder
     {
+        ClassButterflyOptions _localOptions;
+
         public override void Translate()
         {
+            _localOptions = _windowManager.GetPluginOptions("Class Call Usage Hierarchy") as ClassButterflyOptions;
+
             // Add the central node, the body of the butterfly.
             AddCentralNode();
 
@@ -28,22 +33,94 @@ namespace Refractor.Plugins.ILDiagrams
             AddInNodes();
         }
 
-        private void AddCentralNode()
+        private byte Colorup(double col)
         {
-            string typeId = _activeItem.GetShortID();
-            AddNode(typeId, _activeItem.Name, _sharedOptions.TypeColor, _activeItem);
-
-            //if (_activeAssembly.MethodInfo.IsAbstract)
-            //{
-            //    child.Attr.Label += "\n(abstract)";
-            //}
+            if (col <= 0) return 0;
+            if (col >= 255) return 255;
+            return (byte)Math.Round(col);
+        }
+        private Color ChangeBrightnessColor(Color inColor,double brightness)
+        {
+            Color colorout= Color.FromArgb(Colorup(inColor.R * brightness), Colorup(inColor.G * brightness), Colorup(inColor.B * brightness));
+            return colorout;
+        }
+        private String GetTextWithParent(String FullPath)
+        {
+            String outs = "";
+            String[] arr= FullPath.Split(new char[] { '.' });
+            if (arr.Length> 1)
+            {
+                string tabs="";
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    outs += tabs + arr[i] + "\r\n";
+                    tabs+="  ";
+                }
+                return outs;
+                //return arr[arr.Length - 2] + "." + arr[arr.Length - 1];
+            }
+            return FullPath;
+        }
+        private String GetNameForItem(BaseItem item)
+        {
+            if (item == null) return "";
+            if (item is TypeItem)
+            {
+                TypeItem ti=(TypeItem)item;
+                return ti.GetParentAssemblyID() + "\r\n" + item.Name + "\r\n\r\n" + GetTextWithParent(ti.FullName);
+            }
+                return item.Name;
         }
 
-        private void AddOutNodes()
+        private Color GetColorForNode(BaseItem _item, Color _defcolor)
         {
-            string activeId = _activeItem.GetShortID();
+            Color color=_defcolor;
+            TypeItem ti = _item as TypeItem;
+            if (ti != null)
+            {
+                String sname = ti.GetParentAssemblyID();
+                uint crc32 = CRC32Class.obj.GetCrc24ForString(sname);
+                color = Color.FromArgb((int)crc32);
+                color = Color.FromArgb(color.R % 200 + 50, color.G % 200 + 50, color.B % 200 + 50);
+            }
 
-            foreach (MethodItem methodItem in (_activeItem as TypeItem).Methods)
+            return color;
+        }
+
+        private void AddCentralNode()
+        {            
+
+            string typeId = _activeItem.GetShortID();
+
+            Color color = GetColorForNode(_activeItem,ChangeBrightnessColor(_sharedOptions.TypeColor, 1));
+            color = ChangeBrightnessColor(color, 0.8);
+            AddNode(typeId, "*"+GetNameForItem(_activeItem)+"", color, _activeItem);
+
+        }
+
+
+        private bool AddOutNodes()
+        {
+            curlevel = 0;
+            bool res=AddOutNodes(_activeItem);
+            if (res != true)
+            {
+                MessageBox.Show("Max deep level reached");
+            }
+            return true;
+        }
+        int curlevel = 0;
+        private bool AddOutNodes(BaseItem initem)
+        {
+            string activeId = initem.GetShortID();
+            curlevel++;
+            if (curlevel > _localOptions.OuterScanLevel)
+            {
+                //MessageBox.Show("Max deep level reached");
+                return false;
+            }
+
+            foreach (MethodItem methodItem in (initem as TypeItem).Methods)
             {
                 SDILReader.MethodBodyReader mr = new MethodBodyReader(methodItem.MethodInfo);
                 if (mr == null) continue;
@@ -88,10 +165,26 @@ namespace Refractor.Plugins.ILDiagrams
                     // Only add methods once.
                     if (_addedNodes.ContainsKey(id)) continue;
 
-                    AddNode(id, item.Name, _sharedOptions.TypeColor, item);
+                    //
+                    /*
+                    Color color = ChangeBrightnessColor(_sharedOptions.TypeColor, 1.2);
+                    TypeItem ti = item as TypeItem;
+                    if (ti != null)
+                    {
+                        color=Color.FromArgb(ti.GetParentAssemblyID().GetHashCode());
+                    }
+                     */
+                    Color color = GetColorForNode(item,ChangeBrightnessColor(_sharedOptions.TypeColor, 1.2));
+                    color = ChangeBrightnessColor(color, (1.0 + curlevel / 10.0));
+
+                    AddNode(id, GetNameForItem(item), color, item);
                     AddEdge(activeId, id, EdgeStyle.NormalArrow);
+
+                    AddOutNodes(item);
                 }
             }
+            curlevel--;
+            return true;
         }
 
         private void AddOutImplementsNodes()
@@ -108,7 +201,9 @@ namespace Refractor.Plugins.ILDiagrams
                 // Only add methods once.
                 if (_addedNodes.ContainsKey(id)) continue;
 
-                AddNode(id, baseItem.Name, _sharedOptions.TypeColor, baseItem);
+                Color color = GetColorForNode(baseItem,ChangeBrightnessColor(_sharedOptions.TypeColor, 1));
+
+                AddNode(id,GetNameForItem(baseItem), color, baseItem);
                 AddEdge(activeId, id, EdgeStyle.NormalArrow, Color.DarkSeaGreen); //todo
             }
         }
@@ -124,15 +219,18 @@ namespace Refractor.Plugins.ILDiagrams
             // If the type is not present in our project, then forget about it.
             if (baseItem == null) return;
 
+            Color color = GetColorForNode(baseItem, ChangeBrightnessColor(_sharedOptions.TypeColor, 1));
+
+
             // Only add methods once.
             if (_addedNodes.ContainsKey(id))
             {
                 object baby = _addedNodes[id];
-                UpdateNodeColor(baby, _sharedOptions.TypeColor);
+                UpdateNodeColor(baby, color);
             }
             else
             {
-                AddNode(id, baseItem.Name, _sharedOptions.TypeColor, baseItem);
+                AddNode(id, GetNameForItem(baseItem), color, baseItem);
             }
 
             AddEdge(activeId, id, EdgeStyle.NormalArrow, Color.DarkSeaGreen);//todo
@@ -212,7 +310,10 @@ namespace Refractor.Plugins.ILDiagrams
                     // Only add nodes once.
                     //if (_addedNodes.ContainsKey(fromTypeId)) continue;
 
-                    AddNode(fromTypeId, fromTypeItem.Name, _sharedOptions.TypeColor, fromTypeItem);
+                    //AddNode(fromTypeId, GetNameForItem(fromTypeItem), ChangeBrightnessColor(_sharedOptions.TypeColor,0.8), fromTypeItem);
+                    Color color = GetColorForNode(fromTypeItem, ChangeBrightnessColor(_sharedOptions.TypeColor, 1));
+
+                    AddNode(fromTypeId, GetNameForItem(fromTypeItem), color, fromTypeItem);
                     AddEdge(fromTypeId, toTypeId, EdgeStyle.NormalArrow);
                 }
             }
@@ -237,7 +338,10 @@ namespace Refractor.Plugins.ILDiagrams
                 // Only add types once.
                 if (_addedNodes.ContainsKey(fromTypeId)) continue;
 
-                AddNode(fromTypeId, fromTypeItem.Name, _sharedOptions.TypeColor, fromTypeItem);
+                //AddNode(fromTypeId, GetNameForItem(fromTypeItem), _sharedOptions.TypeColor, fromTypeItem);
+                Color color = GetColorForNode(fromTypeItem, ChangeBrightnessColor(_sharedOptions.TypeColor, 1));
+
+                AddNode(fromTypeId, GetNameForItem(fromTypeItem), color, fromTypeItem);
                 AddEdge(fromTypeId, toTypeId, EdgeStyle.NormalArrow, Color.DarkSeaGreen); //todo
             }
         }
@@ -265,7 +369,9 @@ namespace Refractor.Plugins.ILDiagrams
             //}
             //else
             //{
-                AddNode(fromTypeId, baseItem.Name, _sharedOptions.TypeColor, baseItem);
+            Color color = GetColorForNode(baseItem, ChangeBrightnessColor(_sharedOptions.TypeColor, 1));    
+            
+            AddNode(fromTypeId, GetNameForItem(baseItem), color, baseItem);
             //}
 
             AddEdge(fromTypeId, toTypeId, EdgeStyle.NormalArrow);

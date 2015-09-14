@@ -46,6 +46,7 @@ namespace Refractor.Common
             _viewer.MouseMove += new System.Windows.Forms.MouseEventHandler(viewer_MouseMove);
             _viewer.OutsideAreaBrush = new Pen(Color.White).Brush;
             _viewer.Visible = false;
+            _viewer.Font = new Font("Arial", 24, FontStyle.Bold);
 
             panel1.Controls.Add(_viewer);
             _viewer.BringToFront();
@@ -342,7 +343,17 @@ namespace Refractor.Common
                 }
 
                 _logView.Debug("Visible false on UI thread");
-                this.Invoke((DSetVisible)SetViewerVisible, new object[] { false });
+                try
+                {
+                    if (this.IsHandleCreated)
+                    {
+                        this.Invoke((DSetVisible)SetViewerVisible, new object[] { false });
+                    }
+                }
+                catch
+                {
+
+                }
 
                 try
                 {
@@ -363,7 +374,10 @@ namespace Refractor.Common
                 // This can take time itself, seconds for large graphs, and has to run on the 
                 // UI thread. 
                 _logView.Debug("Invoking SetGraph()");
-                this.Invoke((DSetGraph)SetGraph, new object[] { builder.Graph });
+                if (this.IsHandleCreated)
+                {
+                    this.Invoke((DSetGraph)SetGraph, new object[] { builder.Graph });
+                }
 
                 // Stop the progress timer.
                 _timer.Change(Timeout.Infinite, 100);
@@ -381,7 +395,8 @@ namespace Refractor.Common
             }
         }
 
-
+        private float olddefaultzoom = 1;
+        private int oldnodecount = -1;
         private void SetGraph(GD.Graph graph)
         {
             try
@@ -395,10 +410,15 @@ namespace Refractor.Common
                 this.ToolTipText = string.Format("{0} [{1}]",
                     GetID(), activeItemName);
 
+
+
                 // This can fail with 'trim a spline' error.
                 _viewer.Graph = graph;
 
                 _viewer.Visible = true;
+
+                _viewer.ZoomFraction = 0.1;
+                //_viewer.ZoomMode
 
                 // Heuristic adjustment.
                 _defaultZoom = 1.0f;
@@ -418,8 +438,18 @@ namespace Refractor.Common
                 {
                     _defaultZoom = 0.8f;
                 }
+                if (oldnodecount == graph.NodeCount)
+                {
+                    _defaultZoom = olddefaultzoom;
+                }
+
                 _viewer.ZoomF = _defaultZoom;
 
+                if (1==1)
+                {
+                    olddefaultzoom = (float)_viewer.ZoomF;
+                    oldnodecount = _viewer.Graph.NodeCount;
+                }
             }
             catch (InvalidOperationException)
             {

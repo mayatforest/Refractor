@@ -19,7 +19,7 @@ namespace Refractor.Plugins.ILDiagrams
 
         public override string GetID()
         {
-            return "Assembly Butterfly";
+            return "Assembly Hierarchy";
         }
 
         public override List<Type> GetHandledTypes()

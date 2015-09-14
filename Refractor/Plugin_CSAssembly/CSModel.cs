@@ -25,6 +25,12 @@ namespace Refractor.Plugins
         {
             return ItemPath; 
         }
+        //
+        public string GetShortPath()
+        {
+            String filename=Path.GetFileName(ItemPath);
+            return filename;
+        }
 
         public int GetCount()
         {
@@ -92,6 +98,22 @@ namespace Refractor.Plugins
         {
             return Parent.GetID() + "." + _Name;
         }
+
+        public string GetParentAssemblyID()
+        {
+            BaseItem Parentfor = Parent;
+            while (Parentfor != null)
+            {
+                if (Parentfor is AssemblyItem)
+                {
+                    AssemblyItem ai=(AssemblyItem)Parentfor;
+                    return ai.GetShortPath();
+                }
+                Parentfor = Parentfor.Parent;
+            }
+            return "";
+        }
+
 
         public int GetCount()
         {

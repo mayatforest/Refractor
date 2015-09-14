@@ -227,7 +227,7 @@ namespace Refractor.Common
 
         private GD.Graph _graph;
         private DThreadProgress _threadProgress;
-        private float _ratio = 2.0f;
+        private float _ratio = 4.0f;
 
         private GD.Graph CreateGraph()
         {
@@ -274,6 +274,9 @@ namespace Refractor.Common
             Dictionary<string, object> newAddedNodes = new Dictionary<string, object>();
             Dictionary<string, List<object>> newAddedEdges = new Dictionary<string, List<object>>();
 
+            newGraph.GraphAttr.AspectRatio = _options.AspectRatio;
+            newGraph.GraphAttr.NodeSep = _options.NodeSep;
+
             foreach (KeyValuePair<string, object> pair in _addedNodes)
             {
                 GD.Node node = pair.Value as GD.Node;
@@ -283,6 +286,7 @@ namespace Refractor.Common
                 GD.Node newNode = newGraph.AddNode(node.Id);
                 newNode.Attr = node.Attr.Clone();
                 newNode.Attr.LabelMargin = _options.TextSpacing;
+                newNode.Attr.Fontsize = _options.FontSize;
 
                 newNode.UserData = node.UserData;
                 newAddedNodes.Add(node.Id, newNode);

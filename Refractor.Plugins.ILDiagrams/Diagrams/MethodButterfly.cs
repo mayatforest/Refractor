@@ -19,7 +19,7 @@ namespace Refractor.Plugins.ILDiagrams
 
         public override string GetID()
         {
-            return "Method Butterfly";
+            return "Method Call Usage Hierarchy";
         }
 
         public override List<Type> GetHandledTypes()

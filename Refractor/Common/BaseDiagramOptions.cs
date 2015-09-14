@@ -50,5 +50,15 @@ namespace Refractor.Common
 
         private Color _hiliteLineColor = Color.Blue;
         public Color HiliteLineColor { get { return _hiliteLineColor; } set { _hiliteLineColor = value; } }
+
+        private int _fontSize = 24;
+        public int FontSize { get { return _fontSize; } set { _fontSize = value; } }
+        
+        private double _aspectratio = 2.0f;
+        public double AspectRatio { get { return _aspectratio; } set { _aspectratio = value; } }
+
+        private double _nodesep = 2.0f;
+        public double NodeSep { get { return _nodesep; } set { _nodesep = value; } }
+
     }
 }
