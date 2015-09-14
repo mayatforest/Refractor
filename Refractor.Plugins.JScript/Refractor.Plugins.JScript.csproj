@@ -263,7 +263,6 @@
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Diagrams\JSMethods.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Diagrams\JSMethods.Designer.cs">
       <DependentUpon>JSMethods.cs</DependentUpon>
