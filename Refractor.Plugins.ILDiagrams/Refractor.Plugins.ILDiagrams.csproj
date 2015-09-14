@@ -1,0 +1,211 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{319F67E7-E29D-4AF1-90D0-4343AE50A52A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Refractor.Plugins.ILDiagrams</RootNamespace>
+    <AssemblyName>Refractor.Plugins.ILDiagrams</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Refractor, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <ExecutableExtension>.exe</ExecutableExtension>
+      <HintPath>..\bin\Refractor.exe</HintPath>
+    </Reference>
+    <Reference Include="SDILReader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\SDILReader.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Diagrams\AssemblyButterfly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagrams\AssemblyButterfly.Designer.cs">
+      <DependentUpon>AssemblyButterfly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\AssemblyButterflyGb.cs" />
+    <Compile Include="Diagrams\AllNamespaces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagrams\AllNamespaces.designer.cs">
+      <DependentUpon>AllNamespaces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\AllNamespacesGb.cs" />
+    <Compile Include="BaseILGraphBuilder.cs" />
+    <Compile Include="Diagrams\GeneralClasses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagrams\GeneralClasses.Designer.cs">
+      <DependentUpon>GeneralClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\GeneralClassesGb.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Diagrams\ClassButterfly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagrams\ClassButterfly.Designer.cs">
+      <DependentUpon>ClassButterfly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\ClassButterflyGb.cs" />
+    <Compile Include="Diagrams\ClassMethods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagrams\ClassMethods.Designer.cs">
+      <DependentUpon>ClassMethods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\ClassMethodsGb.cs" />
+    <Compile Include="Diagrams\AssemblyClasses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagrams\AssemblyClasses.designer.cs">
+      <DependentUpon>AssemblyClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\AssembyClassesGb.cs" />
+    <Compile Include="Diagrams\AssemblyNamespaces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagrams\AssemblyNamespaces.designer.cs">
+      <DependentUpon>AssemblyNamespaces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\AssemblyNamespacesGb.cs" />
+    <Compile Include="Diagrams\MethodButterfly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagrams\MethodButterfly.Designer.cs">
+      <DependentUpon>MethodButterfly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\MethodButterflyGb.cs" />
+    <Compile Include="Diagrams\NamespaceClasses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagrams\NamespaceClasses.Designer.cs">
+      <DependentUpon>NamespaceClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\NamespaceClassesGb.cs" />
+    <Compile Include="Diagrams\AllAssemblies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagrams\AllAssemblies.designer.cs">
+      <DependentUpon>AllAssemblies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\AllAssembliesGb.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Diagrams\AssemblyButterfly.resx">
+      <DependentUpon>AssemblyButterfly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagrams\ClassButterfly.resx">
+      <DependentUpon>ClassButterfly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagrams\ClassMethods.resx">
+      <DependentUpon>ClassMethods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagrams\AssemblyClasses.resx">
+      <DependentUpon>AssemblyClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagrams\AssemblyNamespaces.resx">
+      <DependentUpon>AssemblyNamespaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagrams\AllNamespaces.resx">
+      <DependentUpon>AllNamespaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagrams\GeneralClasses.resx">
+      <DependentUpon>GeneralClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagrams\MethodButterfly.resx">
+      <DependentUpon>MethodButterfly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagrams\NamespaceClasses.resx">
+      <DependentUpon>NamespaceClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagrams\AllAssemblies.resx">
+      <DependentUpon>AllAssemblies.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

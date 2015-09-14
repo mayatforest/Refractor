@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FD59371A-E81E-45AA-83CD-E749BC220A7A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Refractor.Plugins.JScript</RootNamespace>
+    <AssemblyName>Refractor.Plugins.JScript</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Vsa">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Refractor, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <ExecutableExtension>.exe</ExecutableExtension>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseJSGraphBuilder.cs" />
+    <Compile Include="Diagrams\JSMethodsGb.cs" />
+    <Compile Include="JSModel.cs" />
+    <Compile Include="JSParserPlugin.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript.Vsa\VsaEngine.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ActivationObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ActiveXObjectConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ArgumentsObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ArrayConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ArrayLiteral.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ArrayObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ArrayPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ArrayWrapper.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\AssemblyCustomAttributeList.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ast.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ASTList.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\BinaryOp.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Binding.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\BitwiseBinary.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Block.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\BlockScope.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\BooleanConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\BooleanObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\BooleanPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\BreakOutOfFinally.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Closure.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\CmdLineError.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\CmdLineException.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\CmdLineOptionParser.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\CodeGenerator.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\COMFieldInfo.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\COMMemberInfo.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\COMMethodInfo.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Context.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ContinueOutOfFinally.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Convert.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\DateConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\DateObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\DatePrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\DebugBreak.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Decompiler.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\DocumentContext.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Empty.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Enum.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\EnumeratorConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\EnumeratorObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\EnumeratorPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Equality.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ErrorConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ErrorObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ErrorPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Eval.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\EvalErrorObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Expando.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\expression.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\FieldAccessor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ForIn.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\FormalParameterList.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\FunctionConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\FunctionDeclaration.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\FunctionExpression.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\FunctionObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\FunctionPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\FunctionWrapper.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\GlobalObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Globals.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\GlobalScope.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IActivationObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IAuthorServices.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IColorizeText.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IDebugConvert.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IDebuggerObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IDebugScriptScope.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IDebugType.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IDebugVsaScriptCodeItem.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IDefineEvent.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IdentificationTable.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IEngine2.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IErrorHandler.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IMethodsCompletionInfo.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Import.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\In.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\INeedEngine.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\InstanceOf.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IObjectCompletionInfo.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IParseText.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IRedirectOutput.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ISite2.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ITokenColorInfo.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ITokenEnumerator.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IVsaFullErrorInfo.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IVsaScriptCodeItem.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IVsaScriptScope.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\IWrappedMember.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSBuiltIn.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JScriptCodeCompiler.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JScriptCodeGenerator.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JScriptCodeProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JScriptException.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSError.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSField.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSFieldInfo.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSFunctionAttribute.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSFunctionAttributeEnum.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSLocalField.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSMethod.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSMethodInfo.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSParser.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSPropertyInfo.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSPrototypeObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSScanner.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSToken.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\JSVariableField.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LateBinding.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientArrayPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientBooleanPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientDateConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientDatePrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientEnumeratorPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientErrorPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientFunctionPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientGlobalObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientMathObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientNumberPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientObjectPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientRegExpPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientStringConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientStringPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\LenientVBArrayPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Literal.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\MathObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\MemberInfoInitializer.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\MemberInfoList.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\MethodInvoker.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Missing.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Namespace.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\NotRecommendedAttribute.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\NumberConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\NumberObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\NumberPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\NumericBinary.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\NumericUnary.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ObjectConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ObjectPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Package.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Parser.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Plus.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\PostOrPrefixOperator.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Print.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\RangeErrorObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ReferenceAttribute.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ReferenceErrorObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\RegExpConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\RegExpMatch.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\RegExpObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\RegExpPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Relational.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ResInfo.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ReturnOutOfFinally.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ScriptBlock.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ScriptFunction.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ScriptObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\ScriptStream.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\SemanticAnalizer.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\SimpleHashtable.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\SourceState.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\StackFrame.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Statement.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\StrictEquality.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\StringConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\StringLiteral.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\StringObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\StringPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\SuperTypeMembersSorter.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\SyntaxErrorObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Throw.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Token.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\TokenColor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\TokenStream.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\Try.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\TypedArray.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\TypeErrorObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\TypeManager.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\TypeOf.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\TypeReflector.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\UnaryOp.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\URIErrorObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\VariableDeclaration.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\VariableStatement.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\VBArrayConstructor.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\VBArrayObject.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\VBArrayPrototype.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\VersionableAttribute.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\VsaCodeItem.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\VsaGlobalItem.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\VsaItem.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\VsaItems.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\VSAITEMTYPE2.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\VsaReferenceItem.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\VsaScriptScope.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.JScript\With.cs" />
+    <Compile Include="Microsoft.JScript\Microsoft.Vsa\BaseVsaEngine.cs" />
+    <Compile Include="..\Refractor.Plugins.ILDiagrams\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Diagrams\JSMethods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagrams\JSMethods.Designer.cs">
+      <DependentUpon>JSMethods.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Microsoft.JScript\Microsoft.JScript\jscript-lexer-parser.g" />
+    <None Include="Microsoft.JScript\Microsoft.JScript\README" />
+    <None Include="Microsoft.JScript\Microsoft.JScript\TODO" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Diagrams\JSMethods.resx">
+      <DependentUpon>JSMethods.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\JSFileItem.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\JSMethodItem.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\JSClassItem.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
