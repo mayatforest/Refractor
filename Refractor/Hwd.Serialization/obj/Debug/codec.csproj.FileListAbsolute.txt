@@ -1,0 +1,14 @@
+F:\Hwd.Serialization\obj\Debug\ResolveAssemblyReference.cache
+F:\Hwd.Serialization\obj\Debug\Hwd.Serialization.Form1.resources
+F:\Hwd.Serialization\obj\Debug\codec.csproj.GenerateResource.Cache
+F:\bin\testserialization.exe
+F:\bin\testserialization.pdb
+F:\Hwd.Serialization\obj\Debug\testserialization.exe
+F:\Hwd.Serialization\obj\Debug\testserialization.pdb
+F:\backup\Refractor0.3\Refractor\Hwd.Serialization\obj\Debug\testserialization.exe
+F:\backup\Refractor0.3\Refractor\Hwd.Serialization\obj\Debug\testserialization.pdb
+F:\backup\Refractor0.3\Refractor\bin\testserialization.exe
+F:\backup\Refractor0.3\Refractor\bin\testserialization.pdb
+F:\backup\Refractor0.3\Refractor\Hwd.Serialization\obj\Debug\ResolveAssemblyReference.cache
+F:\backup\Refractor0.3\Refractor\Hwd.Serialization\obj\Debug\Hwd.Serialization.Form1.resources
+F:\backup\Refractor0.3\Refractor\Hwd.Serialization\obj\Debug\codec.csproj.GenerateResource.Cache

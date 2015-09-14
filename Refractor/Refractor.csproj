@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4019F2E3-DF1F-4662-937F-DB293BE16833}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Refractor</RootNamespace>
+    <AssemblyName>Refractor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationIcon>Icon1.ico</ApplicationIcon>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aga.Controls, Version=1.6.1.0, Culture=neutral, PublicKeyToken=fcc90fbf924463a3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Aga.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.GLEE, Version=1.1.0.0, Culture=neutral, PublicKeyToken=7f84f738e1fc245c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Microsoft.GLEE.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.GLEE.Drawing, Version=1.1.0.0, Culture=neutral, PublicKeyToken=8a3d7c21d5fa1306, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Microsoft.GLEE.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.GLEE.GraphViewerGDI, Version=1.1.0.0, Culture=neutral, PublicKeyToken=fffc27ea4058b3a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Microsoft.GLEE.GraphViewerGDI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutForm.designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ApplicationOptions.cs" />
+    <Compile Include="Common\BaseDiagramOptions.cs" />
+    <Compile Include="Common\PluginOptions.cs" />
+    <Compile Include="Hwd.Serialization\ConvertXml.cs" />
+    <Compile Include="Hwd.Serialization\Decoder.cs" />
+    <Compile Include="Hwd.Serialization\Encoder.cs" />
+    <Compile Include="Hwd.Serialization\Tuple.cs" />
+    <Compile Include="OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin_CSAssembly\CSParserOptions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Browsers\FavouritesBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Browsers\FavouritesBrowser.Designer.cs">
+      <DependentUpon>FavouritesBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Browsers\FavouritesNode.cs" />
+    <Compile Include="Browsers\HistoryBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Browsers\HistoryBrowser.Designer.cs">
+      <DependentUpon>HistoryBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Browsers\LogView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Browsers\LogView.Designer.cs">
+      <DependentUpon>LogView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\LookupHelper.cs" />
+    <Compile Include="Browsers\ProjectBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Browsers\ProjectBrowser.Designer.cs">
+      <DependentUpon>ProjectBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Browsers\ProjectBrowserModel.cs" />
+    <Compile Include="Common\ProjectDefinition.cs" />
+    <Compile Include="Browsers\ProjectWatcher.cs" />
+    <Compile Include="Common\SidePanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\SidePanel.Designer.cs">
+      <DependentUpon>SidePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\MenuManager.cs" />
+    <Compile Include="Managers\PluginManager.cs" />
+    <Compile Include="Managers\StatusManager.cs" />
+    <Compile Include="Managers\WindowManager.cs" />
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Browsers\FavouritesBrowser.resx">
+      <DependentUpon>FavouritesBrowser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Browsers\HistoryBrowser.resx">
+      <DependentUpon>HistoryBrowser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Browsers\LogView.resx">
+      <DependentUpon>LogView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Browsers\ProjectBrowser.resx">
+      <DependentUpon>ProjectBrowser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\BaseDiagram.resx">
+      <DependentUpon>BaseDiagram.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin_ILViewer\ILViewer.resx">
+      <DependentUpon>ILViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Common\IBrowsers.cs" />
+    <Compile Include="Common\IManagers.cs" />
+    <Compile Include="Common\IPlugins.cs" />
+    <Compile Include="Common\ProjectItems.cs" />
+    <Compile Include="Plugin_CSAssembly\CSModel.cs" />
+    <Compile Include="Plugin_CSAssembly\CSParserPlugin.cs" />
+    <Compile Include="Plugin_CSAssembly\DotNetObject.cs" />
+    <Compile Include="Plugin_CSAssembly\RefHelp.cs" />
+    <Compile Include="Common\BaseDiagram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\BaseDiagram.Designer.cs">
+      <DependentUpon>BaseDiagram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\BaseGraphBuilder.cs" />
+    <Compile Include="Plugin_ILViewer\ILViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugin_ILViewer\ILViewer.Designer.cs">
+      <DependentUpon>ILViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ResourceHelper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Dev.cs" />
+    <Compile Include="Utils\StringLogicalComparer.cs" />
+    <Compile Include="Utils\XmlHelp.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DockPanel.xml" />
+    <Content Include="Icon1.ico" />
+    <EmbeddedResource Include="Common\SidePanel.resx">
+      <DependentUpon>SidePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\AssemblyItem.bmp" />
+    <EmbeddedResource Include="Images\TypeItem.bmp" />
+    <EmbeddedResource Include="Images\FileItem.bmp" />
+    <EmbeddedResource Include="Images\MethodItem.bmp" />
+    <EmbeddedResource Include="Images\NamespaceItem.bmp" />
+    <EmbeddedResource Include="Images\FolderItem.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SDIL\SDILReader\SDILReader.csproj">
+      <Project>{4BD2CEDE-EEA5-4E73-9BD3-3973977A4B24}</Project>
+      <Name>SDILReader</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
