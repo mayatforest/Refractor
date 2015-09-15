@@ -49,3 +49,8 @@ This tells us who we inherit from, what we implement, who inherits or implements
 
 - MethodButterfly
 All methods that may call the central method, and all methods that this method calls. Again, this can lead to interesting code navigation.
+
+Modification
+--------
+
+[![image](https://raw.githubusercontent.com/mayatforest/Refractor/master/Doc/Class%20Call%20Usage.PNG)]
