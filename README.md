@@ -53,4 +53,4 @@ All methods that may call the central method, and all methods that this method c
 Modification
 --------
 
-[![image](https://raw.githubusercontent.com/mayatforest/Refractor/master/Doc/Class%20Call%20Usage.PNG)]
+![image](https://raw.githubusercontent.com/mayatforest/Refractor/master/Doc/Class%20Call%20Usage.PNG)
