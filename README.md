@@ -34,18 +34,18 @@ Diagrams
 --------
 Following on from the ClassMethods diagram of the first article, we have three more diagrams:
 
-AssemblyNamespaces: This has not been so useful for me, as most assemblies I deal with contain a single namespace, although it's good for seeing the exceptions to the case.
+- AssemblyNamespaces: This has not been so useful for me, as most assemblies I deal with contain a single namespace, although it's good for seeing the exceptions to the case.
 NamespaceClasses: This has proved useful, in particular in spotting cyclic dependencies, and in showing the amount of complexity at the namespace level. Too much splitting, and there's not a lot there; too little splitting and there's too much there.
 AssemblyClasses: This is generally too wide in scope, and shows too much non-related functionality to be useful. Perhaps, it might be useful for small assemblies with an over-eager number of namespaces.
 As well as the "inside" linkage of items (i.e., all those items contained by an item), we can also look at "outside" linkage, all those items that use, or are used by, an item. Conceptually, these have a "central" node, and then inward dependencies to the left, outwards, or the right. This can typically form a double fan, so I've called them "butterfly" diagrams to distinguish them.
 
-Butterfly diagrams are more difficult to generate, as to discover the left hand side requires a search of anything that may use the item. This is the equivalent of "grepping" code, searching all source code for hits on an item, and is something your average developer does *a lot*. However, there is an up side, in that we're only interested in files we've opened as part of the host project.
+- Butterfly diagrams are more difficult to generate, as to discover the left hand side requires a search of anything that may use the item. This is the equivalent of "grepping" code, searching all source code for hits on an item, and is something your average developer does *a lot*. However, there is an up side, in that we're only interested in files we've opened as part of the host project.
 
-AssemblyButterfly
+- AssemblyButterfly
 While we already have a plug-in for AllAssemblies, with a large project it can be difficult to see for a single assembly, or slow to produce. This shows assemblies used by an assembly (as does Visual Studio), but also all assemblies that use this assembly (within the project). I've found this useful during build construction and maintenance.
 
-ClassButterfly
+- ClassButterfly
 This tells us who we inherit from, what we implement, who inherits or implements us, any class we use directly in functional fashion, and any class that uses us directly in functional fashion. This is quite useful in conjunction with the ClassMethod diagram - having both open and selecting a class gives you the inside view and the outside view next to each other. It's also an interesting way of navigating around the code. If I could trust that it had found every possible dependence, and if it could jump to lines of code, then it would be more useful, as a possible replacement for some of the "grepping".
 
-MethodButterfly
+- MethodButterfly
 All methods that may call the central method, and all methods that this method calls. Again, this can lead to interesting code navigation.
